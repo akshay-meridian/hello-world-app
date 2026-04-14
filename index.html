@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!-- DOCTYPE tells the browser this is an HTML5 document -->
+
+<html lang="en">
+<!-- The root element of the page. lang="en" helps screen readers and search engines -->
+
+<head>
+  <!-- The head contains metadata — information about the page, not visible content -->
+
+  <!-- Set the character encoding so text displays correctly -->
+  <meta charset="UTF-8">
+
+  <!-- Make the page responsive on mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- The title shown in the browser tab -->
+  <title>Hello World</title>
+
+  <style>
+    /* ── Reset ──────────────────────────────────────────────────────────── */
+    /* Remove default margin and padding that browsers add */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box; /* padding/border included in element width */
+    }
+
+    /* ── Page layout ────────────────────────────────────────────────────── */
+    body {
+      /* Flexbox makes centering easy */
+      display: flex;
+      justify-content: center; /* center horizontally */
+      align-items: center;     /* center vertically   */
+      min-height: 100vh;       /* fill the full viewport height */
+
+      /* Clean, readable background */
+      background-color: #ffffff;
+
+      /* Use the system font — no external download needed */
+      font-family: system-ui, sans-serif;
+    }
+
+    /* ── Heading ────────────────────────────────────────────────────────── */
+    h1 {
+      font-size: 3rem;        /* large but not overwhelming */
+      font-weight: 600;
+      color: #333333;         /* dark grey — easier on the eyes than pure black */
+      letter-spacing: -0.5px; /* subtle tightening for large text */
+    }
+  </style>
+</head>
+
+<body>
+  <!-- The body contains everything the user actually sees -->
+
+  <!-- <main> marks the primary content of the page (good for accessibility) -->
+  <main>
+
+    <!-- h1 is the top-level heading — use it once per page for the main message -->
+    <h1>Hello world!</h1>
+
+  </main>
+</body>
+
+</html>
