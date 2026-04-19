@@ -59,7 +59,28 @@
     <!-- h1 is the top-level heading — use it once per page for the main message -->
     <h1>Humpty Dumpty sat on a wall</h1>
 
+    <!-- Logged-in user will be injected here by the script below -->
+    <p id="user-info" style="margin-top: 1rem; color: #666; font-size: 1rem;"></p>
+
   </main>
+
+  <script>
+    // Azure App Service Easy Auth exposes /.auth/me with the logged-in user's claims
+    fetch('/.auth/me')
+      .then(res => res.json())
+      .then(data => {
+        const claims = data[0]?.user_claims ?? [];
+        // 'name' claim holds the display name; fall back to preferred_username (email)
+        const name =
+          claims.find(c => c.typ === 'name')?.val ||
+          claims.find(c => c.typ === 'preferred_username')?.val ||
+          'Unknown user';
+        document.getElementById('user-info').textContent = 'Logged in as: ' + name;
+      })
+      .catch(() => {
+        // /.auth/me is only available when deployed on Azure — silently skip locally
+      });
+  </script>
 </body>
 
 </html>
